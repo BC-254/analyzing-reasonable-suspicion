@@ -40,5 +40,5 @@ I retained key demographic attributes for both subjects and officers, including 
 
 Since police activity follows distinct time-based patterns, I extracted `Hour`, `Month` and `Weekend Flag` to account for seasonality and time-of-day risk factors. Consequently, I excluded the `Occurred Date` feature.
 
-I excluded features such as `Stop Resolution` and `Final Call Type` to prevent data leakage since they are determined after the arrest decision is made. I also dropped high-cardinality identifiers like `Subject ID`, `GO / SC Num`, `Beat` and `Terry Stop ID` to improve model generalizability.
+I excluded features such as `Stop Resolution` and `Final Call Type` to prevent data leakage since they are determined after the arrest decision is made. I also dropped high-cardinality identifiers like `Subject ID`, `GO / SC Num`,`Officer ID`, `Beat` and `Terry Stop ID` to improve model generalizability.
     
