@@ -52,6 +52,29 @@ Six models were tested:
 |2. Logistic Regression| 5. AdaBoost
 |3. Random forest | 6. XGBoost
  
+ <br>
+
+**Critical Metrics for My Terry Stops Analysis**
+
+In developing this predictive model for law enforcement, I decided to prioritize specific metrics that align with the operational realities and safety requirements of police work.
+
+ 1. *Recall - My Primary Focus*
+
+ I considered recall the most critical metric because missing an actual arrest poses significant risks to officer safety and operational preparedness. A model's ability to catch 89.6% of actual arrests means officers are rarely caught off-guard by unexpected arrest situations. In law enforcement, it's far better to be over-prepared than surprised.
+
+ 2. *ROC-AUC - My Confidence Measure*
+
+I relied on ROC-AUC as my primary performance indicator because it effectively handles the severe class imbalance in my dataset (89% no arrest, 11% arrest). This metric tells me that my model can correctly rank a randomly chosen arrest case higher than a no-arrest case 87.9% of the time, providing reliable risk assessment capabilities for resource allocation.
+
+3. *F1-Score - My Balance Indicator*
+
+I used F1-Score to ensure my model strikes the right balance between catching arrests and avoiding excessive false alarms. While high recall may create more false positives, the F1-Score ensures that I'm maintaining reasonable precision without compromising the critical need to identify potential arrests.
+
+4. *Accuracy - My Acceptable Trade-off*
+
+I will accept lower accuracy for a higher recall so as to discourage the model from simply predicting the majority class. False positives (predicting arrest when none occurs) are operationally manageable, while false negatives (missing actual arrests) can compromise officer safety and public security. My design philosophy thus prioritizes preparedness over efficiency.
+
+
 <br>
 
 ### **Model Evaluation**
