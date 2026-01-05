@@ -42,3 +42,56 @@ Since police activity follows distinct time-based patterns, I extracted `Hour`, 
 
 I excluded features such as `Stop Resolution` and `Final Call Type` to prevent data leakage since they are determined after the arrest decision is made. I also dropped high-cardinality identifiers like `Subject ID`, `GO / SC Num`,`Officer ID`, `Beat` and `Terry Stop ID` to improve model generalizability.
     
+## **Modelling**
+Given the imbalanced nature of the dataset (89% no arrest, 11% arrest), I evaluated multiple machine learning algorithms to predict arrest outcomes. 
+
+Six models were tested:
+|  |  |
+| :--- | :--- |
+|1. Dummy Classifier (baseline) | 4. Gradient Boosting| 
+|2. Logistic Regression| 5. AdaBoost
+|3. Random forest | 6. XGBoost
+ 
+<br>
+
+### **Model Evaluation**
+
+![alt text](Images/Models.png)
+
+XGBoost emerged as the best performing model with:
+
+ * Highest ROC-AUC (0.8790) hence distuinguished clearly between Arrests and No Arrests. This model can thus reliably identify the stops that are more likely to result in arrests.
+
+ * The model also catches 89.6% of actual arrests(recall). Even though this leads to more false positives,  this high recall ensures officers are rarely surprised by unexpected arrest situations.
+
+ * With an F1-Score of 0.4459 shows that this model is striking a reasonable balance between cathing the real arrests and not having many false alarms.
+
+ * Compared to the other models, an 74% accuracy is not remarkable but it shows that the model is trying to get the arrests rather than taking the easy path of always predicting 'No arrests'.
+
+
+ ## **Conclusion**
+ This project successfully developed a predictive model for Terry stop arrest outcomes using 65,931 Seattle Police Department records. Despite the challenging class imbalance (89% no arrest, 11% arrest), the XGBoost model achieved strong performance with an ROC-AUC of 0.8790 and recall of 89.6%, demonstrating its ability to reliably identify high-risk stops while catching nearly 9 out of 10 actual arrests.
+
+**Key Achievements**
+
+* *Effective Feature Engineering*: Created meaningful temporal patterns, officer-subject demographic interactions and cyclical encodings that enhanced model predictive power.
+
+* *Successful Class Imbalance Management*: Prioritized recall over accuracy to ensure officers are prepared for potential arrest situations
+
+* *Actionable Insights*: Provided law enforcement with a data-driven tool for resource allocation and operational planning
+
+**Business Impact**
+
+The model serves as a valuable decision-support tool for law enforcement agencies, enabling better preparation for traffic stops, improved officer safety and more efficient resource deployment. The high recall ensures officers are rarely caught off-guard by unexpected arrests, while the strong ROC-AUC demonstrates reliable risk assessment capabilities.
+
+**Future Recommendations**
+
+* This model should be deployed in a pilot program to validate its real-world performance
+
+* Continuously monitor for bias and fairness across demographic groups
+
+* Integrate additional data sources such as historical crime patterns and environmental factors
+
+* Develop feature importance analysis to provide transparency in decision-making factors
+
+This project demonstrates how machine learning can enhance law enforcement transparency and operational effectiveness while maintaining focus on officer and public safety.
