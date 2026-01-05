@@ -60,11 +60,11 @@ In developing this predictive model for law enforcement, I decided to prioritize
 
  1. *Recall - My Primary Focus*
 
- I considered recall the most critical metric because missing an actual arrest poses significant risks to officer safety and operational preparedness. A model's ability to catch 89.6% of actual arrests means officers are rarely caught off-guard by unexpected arrest situations. In law enforcement, it's far better to be over-prepared than surprised.
+ I considered recall the most critical metric because missing an actual arrest poses significant risks to officer safety and operational preparedness. A model's ability to catch  actual arrests means officers are rarely caught off-guard by unexpected arrest situations. In law enforcement, it's far better to be over-prepared than surprised.
 
  2. *ROC-AUC - My Confidence Measure*
 
-I relied on ROC-AUC as my primary performance indicator because it effectively handles the severe class imbalance in my dataset (89% no arrest, 11% arrest). This metric tells me that my model can correctly rank a randomly chosen arrest case higher than a no-arrest case 87.9% of the time, providing reliable risk assessment capabilities for resource allocation.
+I relied on ROC-AUC as my primary performance indicator because it effectively handles the severe class imbalance in my dataset (89% no arrest, 11% arrest). This metric will tell me if a model can correctly rank a randomly chosen arrest case higher than a no-arrest case hence providing reliable risk assessment capabilities for resource allocation.
 
 3. *F1-Score - My Balance Indicator*
 
@@ -93,7 +93,7 @@ XGBoost emerged as the best performing model with:
 
 
  ## **Conclusion**
- This project successfully developed a predictive model for Terry stop arrest outcomes using 65,931 Seattle Police Department records. Despite the challenging class imbalance (89% no arrest, 11% arrest), the XGBoost model achieved strong performance with an ROC-AUC of 0.8790 and recall of 89.6%, demonstrating its ability to reliably identify high-risk stops while catching nearly 9 out of 10 actual arrests.
+ This project successfully developed a predictive model for Terry stop arrest outcomes using 65,931 Seattle Police Department records. Despite the class imbalance, the XGBoost model achieved strong performance with an ROC-AUC of 0.8790 and recall of 89.6%, demonstrating its ability to reliably identify high-risk stops while catching nearly 9 out of 10 actual arrests.
 
 **Key Achievements**
 
@@ -117,4 +117,3 @@ The model serves as a valuable decision-support tool for law enforcement agencie
 
 * Develop feature importance analysis to provide transparency in decision-making factors
 
-This project demonstrates how machine learning can enhance law enforcement transparency and operational effectiveness while maintaining focus on officer and public safety.
